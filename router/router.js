@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { getUser, logOut, signIn, signUp } from "../controller/userController.js";
+import { userDetails } from "../middleware/userDetails.js";
 
 const router = Router();
 router.get("/",((req,res)=> {
@@ -13,7 +15,11 @@ router.get("/",((req,res)=> {
             message: `Internal server error ${error.message}`,
           });
     }
-    
 }))
+
+router.post('/signup',signUp);
+router.post('/signin',signIn);
+router.get('/user',userDetails,getUser);
+router.get('/logout',logOut)
 
 export default router;

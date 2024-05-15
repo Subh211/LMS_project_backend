@@ -6,6 +6,6 @@ const port = process.env.PORT;
 
 
 app.listen(port, async ()=>{
-    console.log(`listening on http://localhost:${port}`)
     await connectToDb();
+    console.log(`listening on http://localhost:${port}`)
 })
